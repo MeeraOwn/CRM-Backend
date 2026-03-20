@@ -17,13 +17,59 @@ const crmCustomer = {
   },
 
   async create(data) {
-    const { first_name, last_name, email, phone } = data;
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      brokerNumber,
+      customerTitle,
+      customerDisplayName,
+      customerDOB,
+      customerStreet,
+      customerHouseNumber,
+      customerPostalCode,
+      customerCity,
+      customerStatus,
+      description,
+    } = data;
     const [result] = await pool.query(
       `
-      INSERT INTO customers (first_name, last_name, email, phone, created_at)
-      VALUES (?, ?, ?, ?, NOW())
+      INSERT INTO customers (
+        first_name,
+        last_name,
+        email,
+        phone,
+        brokerNumber,
+        customerTitle,
+        customerDisplayName,
+        customerDOB,
+        customerStreet,
+        customerHouseNumber,
+        customerPostalCode,
+        customerCity,
+        customerStatus,
+        description,
+        created_at
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
       `,
-      [first_name, last_name, email, phone],
+      [
+        first_name,
+        last_name,
+        email,
+        phone,
+        brokerNumber,
+        customerTitle,
+        customerDisplayName,
+        customerDOB,
+        customerStreet,
+        customerHouseNumber,
+        customerPostalCode,
+        customerCity,
+        customerStatus,
+        description,
+      ],
     );
 
     // If your table uses AUTO_INCREMENT id, MySQL2 returns insertId.

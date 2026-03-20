@@ -135,7 +135,22 @@ const createCustomer = async (req, res) => {
       return res.status(403).json(error("Forbidden"));
     }
 
-    const { first_name, last_name, email, phone } = req.body;
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      brokerNumber,
+      customerTitle,
+      customerDisplayName,
+      customerDOB,
+      customerStreet,
+      customerHouseNumber,
+      customerPostalCode,
+      customerCity,
+      customerStatus,
+      description,
+    } = req.body;
     if (!first_name || !last_name || !email || !phone) {
       return res.status(400).json(error("Missing required fields"));
     }
@@ -145,6 +160,16 @@ const createCustomer = async (req, res) => {
       last_name,
       email,
       phone,
+      brokerNumber,
+      customerTitle,
+      customerDisplayName,
+      customerDOB,
+      customerStreet,
+      customerHouseNumber,
+      customerPostalCode,
+      customerCity,
+      customerStatus,
+      description,
     });
 
     res.status(201).json(success("CREATED", created));
@@ -164,4 +189,3 @@ export default {
   deleteHistoryById,
   createCustomer,
 };
-

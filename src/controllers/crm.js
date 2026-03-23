@@ -138,6 +138,7 @@ const createCustomer = async (req, res) => {
     const {
       first_name,
       last_name,
+      customerId,
       email,
       phone,
       brokerNumber,
@@ -151,13 +152,14 @@ const createCustomer = async (req, res) => {
       customerStatus,
       description,
     } = req.body;
-    if (!first_name || !last_name || !email || !phone) {
+    if (!first_name || !last_name || !email || !phone || !customerId) {
       return res.status(400).json(error("Missing required fields"));
     }
 
     const created = await crmCustomer.create({
       first_name,
       last_name,
+      customerId,
       email,
       phone,
       brokerNumber,

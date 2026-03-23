@@ -46,7 +46,7 @@ const signIn = async (req, res) => {
         user_id: result.id ?? result._id,
         firstName: result.first_name ?? result.firstName,
         lastName: result.last_name ?? result.lastName,
-      })
+      }),
     );
   } catch (err) {
     logger.error(err.message);

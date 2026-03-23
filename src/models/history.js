@@ -1,11 +1,6 @@
 import { pool } from "../database/init.js";
 
-// history table (assignment):
-// history: id, customer_id, subject, art, description, date, time,
-//          created_by, created_at, completed (optional boolean)
 const historyModel = {
-  // Your assignment schema might name these columns differently
-  // (e.g., `date`/`time` vs `date_val`/`time_val`).
   async _resolveDateTimeColumns() {
     if (historyModel._resolvedDateTimeColumns) {
       return historyModel._resolvedDateTimeColumns;
@@ -60,8 +55,6 @@ const historyModel = {
   },
 
   _qIdent(name) {
-    // Identifier names are selected from a fixed set in _resolveDateTimeColumns.
-    // Support qualified identifiers like `h.date_val`.
     return name
       .split(".")
       .map((part) => `\`${part}\``)
@@ -76,6 +69,7 @@ const historyModel = {
       SELECT
         h.id AS history_id,
         h.customer_id,
+        c.\`customerId\` AS customerId,
         c.first_name,
         c.last_name,
         ${historyModel._qIdent(`h.${dateCol}`)} AS date,

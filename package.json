@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node --watch src/index.js",
-    "format": "npx prettier --write .",
-    "test": "node --test test/*.test.js",
-    "test:integration": "cross-env RUN_CRM_INTEGRATION=1 node --test test/*.test.js"
+    "format": "npx prettier --write ."
   },
   "keywords": [],
   "author": "Meera R",
@@ -23,12 +21,6 @@
     "http-errors-enhanced": "^4.0.2",
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.20.0",
-    "nodemon": "^3.1.14",
-    "pino": "^10.3.1",
-    "typeid-js": "^1.2.0"
-  },
-  "devDependencies": {
-    "cross-env": "^10.1.0",
-    "supertest": "^7.2.2"
+    "pino": "^10.3.1"
   }
 }

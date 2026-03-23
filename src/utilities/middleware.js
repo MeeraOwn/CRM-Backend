@@ -15,18 +15,4 @@ const verifyToken = (req, _, next) => {
   return next();
 };
 
-const verifyRequest = (schema, property) => {
-  return (req, res, next) => {
-    const { error } = schema.validate(req[property]);
-    const valid = error == null;
-    if (valid) {
-      next();
-    } else {
-      const { details } = error;
-      const message = details.map((i) => i.message).join(",");
-      throw createError(422, message);
-    }
-  };
-};
-
-export { verifyRequest, verifyToken };
+export { verifyToken };

@@ -25,7 +25,7 @@ const getAccessToken = (result) => {
       process.env.ACCESS_SECRET,
       {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRE,
-        issuer: "amphe-OneStopPortal",
+        issuer: "ASM-CRM",
       },
     );
     return token;
@@ -51,7 +51,7 @@ const getRefreshToken = (result) => {
       process.env.REFRESH_SECRET,
       {
         expiresIn: process.env.REFRESH_TOKEN_EXPIRE,
-        issuer: "amphe-OneStopPortal",
+        issuer: "ASM-CRM",
       },
     );
     return token;
